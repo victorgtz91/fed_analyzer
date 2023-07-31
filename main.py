@@ -13,7 +13,7 @@ from nltk.tokenize import sent_tokenize
 from nltk.tokenize import word_tokenize
 from matplotlib.ticker import MaxNLocator
 
-# Add a title and a button to the Streamlit UI
+# Add a ttitle and a button to the Streamlit UI
 st.title("Welcome, this is the Fed Analyzer")
 if st.button("RUN"):
 
