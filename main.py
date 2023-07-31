@@ -2,6 +2,7 @@ import streamlit as st
 import requests
 import re
 import spacy
+import nltk
 import pandas as pd
 import matplotlib.pyplot as plt
 from bs4 import BeautifulSoup
@@ -12,6 +13,8 @@ from transformers import DistilBertTokenizer
 from nltk.tokenize import sent_tokenize
 from nltk.tokenize import word_tokenize
 from matplotlib.ticker import MaxNLocator
+
+nltk.download('stopwords')
 
 # Add a title and a button to the Streamlit UI
 st.title("Welcome, this is the Fed Analyzer")
