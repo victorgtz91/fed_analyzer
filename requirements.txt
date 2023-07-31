@@ -1,0 +1,8 @@
+requests
+regex
+spacy
+pandas
+matplotlib
+beautifulsoup4
+nltk
+transformers
