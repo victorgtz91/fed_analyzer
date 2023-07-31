@@ -12,6 +12,8 @@ from transformers import DistilBertTokenizer
 from nltk.tokenize import sent_tokenize
 from nltk.tokenize import word_tokenize
 from matplotlib.ticker import MaxNLocator
+import nltk
+nltk.download('punkt')
 
 # Add a ttitle and a button to the Streamlit UI
 st.title("Welcome, this is the Fed Analyzer")
