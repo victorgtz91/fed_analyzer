@@ -1,3 +1,4 @@
+import streamlit as st
 import requests
 import re
 import spacy
@@ -11,6 +12,10 @@ from transformers import DistilBertTokenizer
 from nltk.tokenize import sent_tokenize
 from nltk.tokenize import word_tokenize
 from matplotlib.ticker import MaxNLocator
+
+# Add a title and a button to the Streamlit UI
+st.title("Welcome, this is the Fed Analyzer")
+if st.button("RUN"):
 
 # Get the list of English stopwords
 stop_words = set(stopwords.words('english'))
@@ -199,8 +204,14 @@ ax2.yaxis.set_major_locator(MaxNLocator(integer=True))
 ax2.legend([bars, line[0]], ['Market vs Inflation Count', 'SP500 Price Level'])
 
 # Show the figure
-plt.savefig('plot.png', dpi=600)
-plt.show()
+#plt.savefig('plot.png', dpi=600)
+#plt.show()
 
 # Print the DataFrame
 # print(df_words[['Date', 'Inflation_Count']])
+
+    # Show the figure in the Streamlit UI instead of saving it to a file
+    st.pyplot(fig)
+
+    # Print the DataFrame in the Streamlit UI
+    st.write(df_words[['Date', 'Inflation_Count']])
