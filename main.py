@@ -71,7 +71,6 @@ if st.button("RUN"):
         columns=['Date', 'Word1', 'Word2', 'Word3', 'Word4', 'Word5', 'Sentiment', 'Inflation_Count', 'Market_Count']
     )
 
-    # Iterate over each date in the DataFrame
     for _, row in df_dates.iterrows():
         date = row['Date']
 
@@ -84,8 +83,15 @@ if st.button("RUN"):
         # Parse the webpage content with BeautifulSoup
         soup = BeautifulSoup(response.content, 'html.parser')
 
-        # Extract the text from the webpage
-        text = soup.get_text()
+        # Extract the text from the specific section of the webpage
+        # Assuming the section of interest is within the div with id 'article'
+        article_div = soup.find('div', id='article')
+
+        # Extract all the paragraphs within the article div
+        paragraphs = article_div.find_all('p')
+
+        # Join all the paragraphs into a single text
+        text = ' '.join([p.get_text() for p in paragraphs])
 
         # Use spacy to remove names from the text
         doc = nlp(text)
